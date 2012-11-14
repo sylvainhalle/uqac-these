@@ -1,0 +1,120 @@
+%% -----------------------------------------------------------------------
+%% Modèle de thèse/mémoire/essai UQAC
+%% 
+%% Options de la classe:
+%%   - times: pour utiliser Times/Helvetica plutôt que Computer Modern
+%%   - these, memoire, essai, projetthese: crée une page titre libellée
+%%        "thèse" (resp. "mémoire", "essai", etc.)
+%%   - Toutes les options de la classe "book"
+%% -----------------------------------------------------------------------
+\documentclass[times,twoside,these]{uqac-these}
+
+%% ------------------------
+%% Packages usuels
+%% ------------------------
+
+%% Pour utiliser les caractères accentués. Assurez-vous que
+%% votre éditeur texte sauvegarde les fichiers en utilisant l'encodage UTF-8
+\usepackage[utf8]{inputenc}
+
+%% Pour les titres de chapitres + coupures de mots en français
+\usepackage[french]{babel}
+
+%% Pour les citations de type (Auteur, année) plutôt que [numéro].
+%% Attention: la clé des références ne doit *pas* contenir le caractère ":"
+%% (bug du package natbib)
+\usepackage{natbib}
+
+%% Pour interligne simple dans les listes (table des matières, etc.) et
+%% double dans le reste
+\usepackage{setspace}
+
+%% Pour ajouter des méta-données PDF et des hyperliens
+\usepackage{hyperref}
+
+%% Pour inclure des graphiques (via la commande \includegraphics)
+\usepackage{graphicx}
+
+% Pour l'index
+\makeindex
+
+%% ------------------------
+%% Quelques définitions
+%% ------------------------
+
+%% Titre du document
+\newcommand{\UqacTheseTitre}{Applications du convecteur temporel:
+  une étude empirique}
+
+%% Auteur du document
+\newcommand{\UqacTheseAuteur}{Emmett Brown}
+
+%% Date (mois année) du document
+\newcommand{\UqacTheseDate}{Novembre 1955}
+
+%% ------------------------
+%% Création des méta-données PDF
+%% ------------------------
+\hypersetup{%
+  pdfauthor = {\UqacTheseAuteur},
+  pdftitle = {\UqacTheseTitre}
+}
+
+\begin{document}
+  
+%% ------------------------
+%% Création de la page titre
+%% ------------------------
+\title{\UqacTheseTitre}
+\author{\UqacTheseAuteur}
+\date{\UqacTheseDate}
+\thispagestyle{empty}
+\maketitle
+
+%% ------------------------
+%% Pages préliminaires
+%% ------------------------
+\frontmatter
+\singlespacing
+\addtocounter{page}{1}
+%% \include{avant-propos} %% Facultatif
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+%% ------------------------
+%% Document principal
+%% ------------------------
+\mainmatter
+\doublespacing
+\include{resume}
+\include{introduction}
+\include{chapitre1}
+\include{chapitre2}
+%% ...
+%% Ajoutez autant de commandes include qu'il y a de chapitres à
+%% inclure dans votre document
+%% ...
+\include{conclusion}
+
+%% ------------------------
+%% Pages liminaires
+%% ------------------------
+\backmatter
+%% Style des références bibliographiques
+\bibliographystyle{theseuqam}
+
+%% Liste des fichiers source pour la bibliograhpie.
+%% On peut inclure plus d'un fichier en séparant leurs noms par des
+%% virgules.
+\bibliography{bibliographie}
+
+%% Décommenter cette ligne pour afficher l'index
+% \printindex
+\end{document}

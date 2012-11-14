@@ -1,0 +1,46 @@
+Gabarit de mémoire, thèse et essai pour l'UQAC
+==============================================
+
+par Sylvain Hallé <shalle@uqac.ca>
+
+Comment utiliser ce modèle
+--------------------------
+
+Cet ensemble de fichiers permet de produire un document de type
+mémoire, essai ou thèse en suivant la même présentation que le gabarit au
+format Microsoft Word qui était (jadis) disponible sur le site de
+l'université.
+
+En quelques étapes rapides:
+
+1. Décompressez le contenu de l'archive dans un répertoire de votre
+   choix
+2. Ouvrez le fichier these.tex, trouvez-y les champs \UqacTheseTitre, etc.
+   et remplacez-les par les valeurs appropriées
+3. Modifiez au besoin le préambule (la ligne débutant par \documentclass)
+   pour remplacer these par memoire, essai ou projetthese selon le type de
+   document à produire (modifie le contenu de la page titre auto-générée)
+4. Localisez la section "Document principal" et ajoutez autant de commandes
+   include qu'il y a de fichiers à inclure dans votre document
+5. Modifiez au besoin la ligne \bibliography pour y inclure les fichiers
+   .bib appropriés
+
+Pour tout le reste, la classe uqac-these utilise exactement les mêmes
+commandes et les mêmes environnements que la classe "book" qui vient par
+défaut avec LaTeX. Lisez la documentation sur "book" pour comprendre comment
+utiliser uqac-these.
+
+Le Makefile
+-----------
+
+Sous Linux, un script de type Makefile vous aide à accomplir les tâches
+courantes (compiler, produire la bibliographie, etc.). Tapez `make help`
+pour plus d'infos.
+
+À propos de ce modèle
+---------------------
+
+Consultez les commentaires du code source de uqac-these.cls pour
+plus d'information sur la création de cette classe.
+
+2012-11-14
