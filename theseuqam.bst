@@ -989,9 +989,9 @@ FUNCTION {format.lab.names}
       s #1 "{vv~}{ll}" format.name$
 	{ namesleft #0 > }
 	{ nameptr numnames =
-	    { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+	    { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "autres" =
 		{ " et~al." * }
-		{ " and " * s nameptr "{vv~}{ll}" format.name$ * }
+		{ " et " * s nameptr "{vv~}{ll}" format.name$ * }
 	      if$
 	    }
 	    { ", " * s nameptr "{vv~}{ll}" format.name$ * }
