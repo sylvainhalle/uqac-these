@@ -19,12 +19,15 @@
 % pour qu'il rajoute ~ entre p. et les no. de pages
 % 19 mai 2004
 % 9) creation de output.check.publisher et output.nonull.publisher
-% pour �crire l'adresse : �diteur
+% pour écrire l'adresse : éditeur
 % 9) modifier l'ordre dans
 % 20 janvier 2005
 % 10) ajouter add.period$ dans les Function(article,book,booklet,inbook,incollection,
 % inproccedings,manual,masterthesis,misc,phdthesis,proceeding,techreport,unpublished)
 %  pour qu'un point apparaisse apres le dernier nom des auteurs
+% 20 mars 2013
+% 11) corrigé un bug dans la fonction format.lab.names: l'année d'une citation
+% ne s'affichait pas lorsque la référence contenait exactement 3 auteurs
 
 % BibTeX `apalike' bibliography style (24-Jan-88 version)
 % Adapted from the `alpha' style, version 0.99a; for BibTeX version 0.99a.
@@ -977,25 +980,25 @@ FUNCTION {chop.word}
 FUNCTION {format.lab.names}
 { 's :=
   s num.names$ 'numnames :=
-  numnames #3 >    % change number to number of others allowed before
-           % forcing "et al".
+  numnames #2 >    % change number to number of others allowed before
+		   % forcing "et al".
     { s #1 "{vv~}{ll}" format.name$ " et~al." * }
     {
       numnames #1 - 'namesleft :=
       #2 'nameptr :=
       s #1 "{vv~}{ll}" format.name$
-    { namesleft #0 > }
-    { nameptr numnames =
-        { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-        { " et~al." * }
-        { " et " * s nameptr "{vv~}{ll}" format.name$ * }
-          if$
-        }
-        { ", " * s nameptr "{vv~}{ll}" format.name$ * }
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
+	{ namesleft #0 > }
+	{ nameptr numnames =
+	    { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+		{ " et~al." * }
+		{ " and " * s nameptr "{vv~}{ll}" format.name$ * }
+	      if$
+	    }
+	    { ", " * s nameptr "{vv~}{ll}" format.name$ * }
+	  if$
+	  nameptr #1 + 'nameptr :=
+	  namesleft #1 - 'namesleft :=
+	}
       while$
     }
   if$

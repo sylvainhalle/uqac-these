@@ -19,7 +19,7 @@
 %% This work consists of the file uqac-these.cls.
 %%
 %% Version: 2012-11-12
-%% Modif:   2012-11-13
+%% Modif:   2013-03-20
 %%
 %% NOTES d'utilisation
 %% -------------------
@@ -44,7 +44,7 @@
 %% Déclarations
 %% ------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uqac-these}[2012/11/13 Thèse UQAC, V1.0 par Sylvain Hallé]
+\ProvidesClass{uqac-these}[2013/03/20 Thèse UQAC, V1.01 par Sylvain Hallé]
 
 %% ------------------------
 %% Options de police par défaut
