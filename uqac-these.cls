@@ -19,7 +19,7 @@
 %% This work consists of the file uqac-these.cls.
 %%
 %% Version: 2012-11-12
-%% Modif:   2013-03-20
+%% Modif:   2013-09-25
 %%
 %% NOTES d'utilisation
 %% -------------------
@@ -44,7 +44,7 @@
 %% Déclarations
 %% ------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uqac-these}[2013/03/20 Thèse UQAC, V1.01 par Sylvain Hallé]
+\ProvidesClass{uqac-these}[2013/09/25 Thèse UQAC, V1.02 par Sylvain Hallé]
 
 %% ------------------------
 %% Options de police par défaut
@@ -68,6 +68,10 @@
 \def\@uqacpdcprojetthese{false} %% Projet de thèse
 \DeclareOption{projetthese}{%
   \def\@uqacpdcprojetthese{true}
+}
+\def\@uqacpdcproposition{false} %% Proposition de projet (maîtrise)
+\DeclareOption{propositionprojet}{%
+  \def\@uqacpdcproposition{true}
 }
 \def\@uqacpdcthese{true} %% Thèse = valeur par défaut
 \DeclareOption{these}{%
@@ -150,7 +154,13 @@
       \def\@uqacpdcaccord{}
       \def\@uqacpdcnomprogramme{du doctorat informatique}
     }{%
-      %\def\@uqacpdcnomdoc{}
+      \ifthenelse{\equal{\@uqacpdcproposition}{true}}{%
+        \def\@uqacpdcnomdoc{Proposition de projet}
+        \def\@uqacpdcaccord{e}
+        \def\@uqacpdcnomprogramme{de la maîtrise en informatique}
+      }{%
+        %\def\@uqacpdcnomdoc{}
+      }
     }
   }
 }
