@@ -35,6 +35,17 @@
 %% Pour inclure des graphiques (via la commande \includegraphics)
 \usepackage{graphicx}
 
+%% Pour inclure des listings de code source
+\usepackage{listings}
+\addto\captionsfrench{
+  \renewcommand{\lstlistlistingname}{Liste des sources}
+}
+\addto\captionsenglish{
+  \renewcommand{\lstlistlistingname}{List of Sources}
+}
+\lstset{language=C++,frame=single}
+
+
 % Pour l'index
 \makeindex
 
@@ -86,6 +97,9 @@
 \cleardoublepage
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\lstlistoflistings
 
 %% ------------------------
 %% Document principal

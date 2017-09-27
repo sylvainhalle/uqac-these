@@ -47,7 +47,7 @@ install:
 	cp uqac-these.cls theseuqam.bst logo-uqac.pdf $(TEXHOME)/$(INSTALLDIR)/
 
 clean:
-	$(RM) *.aux *.log *.blg *.bbl *.dvi *.spl *.out *.toc *.lof *.lot *.idx *~
+	$(RM) *.aux *.log *.blg *.bbl *.dvi *.spl *.out *.toc *.lof *.lot *.lol *.idx *~
 
 flush: clean
 	$(RM) $(FILENAME).pdf
