@@ -1,4 +1,5 @@
 *.aux
+*.swp
 *.glo
 *.idx
 *.log
@@ -23,3 +24,4 @@
 *.out
 *.synctex.gz
 *~
+these.pdf

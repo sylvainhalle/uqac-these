@@ -66,9 +66,13 @@
 %% ------------------------
 %% Création des méta-données PDF
 %% ------------------------
+\makeatletter
+\newcommand{\UqacTheseVersion}{\@uqactheseversion}
+\makeatother
 \hypersetup{%
   pdfauthor = {\UqacTheseAuteur},
-  pdftitle = {\UqacTheseTitre}
+  pdftitle = {\UqacTheseTitre},
+  pdfproducer = {Package uqac-these V\UqacTheseVersion}
 }
 
 \begin{document}
