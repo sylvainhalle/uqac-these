@@ -298,6 +298,14 @@
 }
 
 %% ------------------------
+%% Les redéfinitions suivantes nécessitent le package etoolbox
+%% ------------------------
+\RequirePackage{etoolbox}
+
+%% Environnements verbatim à simple interligne par défaut
+\BeforeBeginEnvironment{verbatim}{\def\baselinestretch{1}}
+
+%% ------------------------
 %% Ceci sert à corriger un bug
 %% de la version 2.10.1 du package titlesec qui fait disparaître
 %% les numéros de sections.

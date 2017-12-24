@@ -9,45 +9,9 @@
 %% -----------------------------------------------------------------------
 \documentclass[times,twoside,these]{uqac-these}
 
-%% ------------------------
-%% Packages usuels
-%% ------------------------
-
 %% Pour utiliser les caractères accentués. Assurez-vous que
 %% votre éditeur texte sauvegarde les fichiers en utilisant l'encodage UTF-8
 \usepackage[utf8]{inputenc}
-
-%% Pour les titres de chapitres + coupures de mots en français
-\usepackage[french]{babel}
-
-%% Pour les citations de type (Auteur, année) plutôt que [numéro].
-%% Attention: la clé des références ne doit *pas* contenir le caractère ":"
-%% (bug du package natbib)
-\usepackage{natbib}
-
-%% Pour interligne simple dans les listes (table des matières, etc.) et
-%% double dans le reste
-\usepackage{setspace}
-
-%% Pour ajouter des méta-données PDF et des hyperliens
-\usepackage{hyperref}
-
-%% Pour inclure des graphiques (via la commande \includegraphics)
-\usepackage{graphicx}
-
-%% Pour inclure des listings de code source
-\usepackage{listings}
-\addto\captionsfrench{
-  \renewcommand{\lstlistlistingname}{Liste des sources}
-}
-\addto\captionsenglish{
-  \renewcommand{\lstlistlistingname}{List of Sources}
-}
-\lstset{language=C++,frame=single}
-
-
-% Pour l'index
-\makeindex
 
 %% ------------------------
 %% Quelques définitions
@@ -62,6 +26,57 @@
 
 %% Date (mois année) du document
 \newcommand{\UqacTheseDate}{Novembre 1955}
+
+%% ------------------------
+%% Packages usuels
+%% ------------------------
+
+%% Pour les citations de type (Auteur, année) plutôt que [numéro].
+%% Attention: la clé des références ne doit *pas* contenir le caractère ":"
+%% (bug du package natbib)
+\usepackage{natbib}
+
+%% Pour interligne simple dans les listes (table des matières, etc.) et
+%% double dans le reste
+\usepackage{setspace}
+
+%% Pour générer des PDF/A (le format demandé par l'UQAC lors du dépôt
+%% final). Il est recommandé de décommenter cette ligne seulement pour
+%% la production de l'ultime PDF du dépôt final.
+%\usepackage[a-1b]{pdfx}
+
+%% Pour ajouter des méta-données PDF et des hyperliens
+\usepackage{hyperref}
+
+%% Pour inclure des graphiques (via la commande \includegraphics)
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+
+%% Pour inclure des listings de code source
+\usepackage{listings}
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  columns=flexible,
+  frame=single
+}
+\addto\captionsfrench{
+  \renewcommand{\lstlistlistingname}{Liste des sources}
+}
+\addto\captionsenglish{
+  \renewcommand{\lstlistlistingname}{List of Sources}
+}
+
+% Pour l'index
+\makeindex
+
+% Cette ligne évite une panoplie de warnings de pdflatex si on inclut
+% des figures PDF récentes (version 1.6 et supérieures)
+\pdfminorversion=7
+
+% On ignore les warnings de pdflatex sur les "PDF page groups"
+% (n'a aucun effet dans notre cas)
+\pdfsuppresswarningpagegroup=1
 
 %% ------------------------
 %% Création des méta-données PDF

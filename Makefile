@@ -1,6 +1,6 @@
 # ---------------------------------------
 # Un makefile simple pour produire la thèse
-# Auteur: Sylvain Hallé
+# Auteur: Sylvain Hallé et Éric Laberge
 # ---------------------------------------
 .DEFAULT_GOAL := all
 
@@ -30,6 +30,8 @@ help:
 	@echo '   make flush                       clean + efface le pdf de la thèse  '
 	@echo "   make install                     installe la classe dans l'arbre    "
 	@echo '                                      texmf local                      '
+	@echo "   make file=chapX.tex aspell       passe le correcteur Aspell sur le  "
+	@echo '                                      fichier chapX.tex                '
 	@echo '                                                                       '
 
 all: $(SRC)
@@ -47,7 +49,10 @@ install:
 	cp uqac-these.cls theseuqam.bst logo-uqac.pdf $(TEXHOME)/$(INSTALLDIR)/
 
 clean:
-	$(RM) *.aux *.log *.blg *.bbl *.dvi *.spl *.out *.toc *.lof *.lot *.lol *.idx *~
+	$(RM) *.aux *.log *.blg *.bbl *.dvi *.spl *.out *.toc *.lof *.lot *.lol *.idx *~ *.bak
+
+aspell:
+	aspell --home-dir=. --lang=fr --mode=tex --add-tex-command="nsc p" --add-tex-command="citep op" --add-tex-command="citet op" check $(file)
 
 flush: clean
 	$(RM) $(FILENAME).pdf
