@@ -2,7 +2,7 @@
 %% Classe essai/mémoire/thèse UQAC
 %%
 %% uqac-these.cls
-%% Copyright 2012 Sylvain Hallé
+%% Copyright 2012-2017 Sylvain Hallé
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -44,12 +44,12 @@
 %% Déclarations
 %% ------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uqac-these}[2017/10/31 Thèse UQAC, V1.03 par Sylvain Hallé]
+\ProvidesClass{uqac-these}[2017/12/24 Thèse UQAC, V1.04 par Sylvain Hallé]
 
 %% ------------------------
 %% Numéro de version
 %% ------------------------
-\def\@uqactheseversion{1.03}
+\def\@uqactheseversion{1.04}
 
 %% ------------------------
 %% Options de police par défaut
@@ -114,7 +114,8 @@
 \RequirePackage{setspace}
 \RequirePackage{tocloft}
 \RequirePackage{emptypage} %% On ne pagine pas pages vides
-\RequirePackage{caption} %% Pour définir les légendes des figures
+%% Pour les titres de chapitres + coupures de mots en français
+\RequirePackage[french]{babel}
 
 %% ------------------------
 %% Chargement conditionnel de packages selon le document produit
@@ -124,6 +125,11 @@
 \else
   \RequirePackage[babel]{microtype}
 \fi
+
+%% ------------------------
+%% Ces packages doivent être chargés après babel
+%% ------------------------
+\RequirePackage{caption} %% Pour définir les légendes des figures
 
 %% ------------------------
 %% Choix de la police de caractère
@@ -197,6 +203,7 @@
 \fancyhf{} % clear all header and footer fields
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
+\setlength{\headheight}{14.5pt}
 
 %% ------------------------
 %% Style des titres et sous-titres
@@ -289,6 +296,18 @@
 \end{center}
 \end{titlepage}
 }
+
+%% ------------------------
+%% Ceci sert à corriger un bug
+%% de la version 2.10.1 du package titlesec qui fait disparaître
+%% les numéros de sections.
+%% https://tex.stackexchange.com/a/300259
+%% ------------------------
+\RequirePackage{etoolbox}
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
 
 %% Codes pour jEdit
 %% :mode=latex:wrap=none:
