@@ -27,6 +27,14 @@
 %% Date (mois année) du document
 \newcommand{\UqacTheseDate}{Novembre 1955}
 
+% Cette ligne évite une panoplie de warnings de pdflatex si on inclut
+% des figures PDF récentes (version 1.6 et supérieures)
+\pdfminorversion=7
+
+% On ignore les warnings de pdflatex sur les "PDF page groups"
+% (n'a aucun effet dans notre cas)
+\pdfsuppresswarningpagegroup=1
+
 %% ------------------------
 %% Packages usuels
 %% ------------------------
@@ -69,14 +77,6 @@
 
 % Pour l'index
 \makeindex
-
-% Cette ligne évite une panoplie de warnings de pdflatex si on inclut
-% des figures PDF récentes (version 1.6 et supérieures)
-\pdfminorversion=7
-
-% On ignore les warnings de pdflatex sur les "PDF page groups"
-% (n'a aucun effet dans notre cas)
-\pdfsuppresswarningpagegroup=1
 
 %% ------------------------
 %% Création des méta-données PDF

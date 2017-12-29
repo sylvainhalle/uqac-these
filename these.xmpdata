@@ -1,6 +1,3 @@
-% Pour le dépôt final, remplacez les champs \Author et \Title en bas du fichier
-% par votre nom et le titre du document.
-%
 % Replace the following information with your document's actual
 % metadata. If you do not want to set a value for a certain parameter,
 % just omit it.
@@ -81,10 +78,9 @@
 
 
 
-\Title        {\UqacTheseTitre}
-\Author       {\UqacTheseAuteur}
-
-%\Copyright    {Copyright \copyright\ 2017 "Emmett Brown"}
+\Title{\UqacTheseTitre}
+\Author{\UqacTheseAuteur}
+\Copyright{Copyright \copyright\ \UqacTheseDate\ \UqacTheseAuteur}
 %\Keywords     {some keyword\sep
 %               another keyword\sep
 %               some more keywords}

@@ -25,5 +25,6 @@
 *.out
 *.synctex.gz
 *~
+*\#
 these.pdf
 pdfa.xmpi

@@ -129,7 +129,7 @@ fichier:
 
 **Attention**: plusieurs distributions de LaTeX (dont TeXLive 2016) ont une
 version brisée de ce package. Assurez-vous de compiler en utilisant une
-distribution très récente.
+distribution 2017 ou plus récente.
 
 À propos de ce modèle
 ---------------------
