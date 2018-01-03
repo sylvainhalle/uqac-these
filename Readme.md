@@ -129,7 +129,9 @@ fichier:
 
 **Attention**: plusieurs distributions de LaTeX (dont TeXLive 2016) ont une
 version brisée de ce package. Assurez-vous de compiler en utilisant une
-distribution 2017 ou plus récente.
+distribution 2017 ou plus récente. En complément, la page de
+[Peter Selinger](https://www.mathstat.dal.ca/~selinger/pdfa/) donne des
+informations détaillées sur la production d'un PDF/A.
 
 À propos de ce modèle
 ---------------------
