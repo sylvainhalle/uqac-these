@@ -127,11 +127,17 @@ fichier:
 
     \usepackage[a-1b]{pdfx}
 
-**Attention**: plusieurs distributions de LaTeX (dont TeXLive 2016) ont une
-version brisée de ce package. Assurez-vous de compiler en utilisant une
-distribution 2017 ou plus récente. En complément, la page de
-[Peter Selinger](https://www.mathstat.dal.ca/~selinger/pdfa/) donne des
-informations détaillées sur la production d'un PDF/A.
+Assurez-vous d'utiliser une version récente du package (2017 ou après), car
+d'anciennes versions sont boguées et empêchent votre document de compiler.
+De plus, le package n'écrit pas correctement la méta-donnée `Author` dans le
+PDF généré. Pour l'ajouter, vous devez aller écrire votre nom dans le
+fichier `these.info`, puis taper à la ligne de commande
+
+    make metadata
+
+Cette option nécessite que
+[pdftk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
+soit installé.
 
 À propos de ce modèle
 ---------------------

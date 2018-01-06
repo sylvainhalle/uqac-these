@@ -2,7 +2,7 @@
 %% Classe essai/mémoire/thèse UQAC
 %%
 %% uqac-these.cls
-%% Copyright 2012-2017 Sylvain Hallé
+%% Copyright 2012-2018 Sylvain Hallé
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -19,7 +19,7 @@
 %% This work consists of the file uqac-these.cls.
 %%
 %% Version: 2012-11-12
-%% Modif:   2017-10-31
+%% Modif:   2018-01-06
 %%
 %% NOTES d'utilisation
 %% -------------------
@@ -44,7 +44,7 @@
 %% Déclarations
 %% ------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uqac-these}[2017/12/24 Thèse UQAC, V1.04 par Sylvain Hallé]
+\ProvidesClass{uqac-these}[2018/01/06 Thèse UQAC, V1.04 par Sylvain Hallé]
 
 %% ------------------------
 %% Numéro de version

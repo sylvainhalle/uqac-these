@@ -7,9 +7,11 @@
 ifeq ($(OS),Windows_NT)
   RM = cmd /C del /Q /F
   RRM = cmd /C rmdir /Q /S
+  CP = cmd /C cp
 else
   RM = rm -f
   RRM = rm -f -r
+  CP = cp
 endif
 
 FILENAME = these
@@ -32,6 +34,7 @@ help:
 	@echo '                                      texmf local                      '
 	@echo "   make file=chapX.tex aspell       passe le correcteur Aspell sur le  "
 	@echo '                                      fichier chapX.tex                '
+	@echo '   make metadata                    ajoute le champ `Author` au PDF    '
 	@echo '                                                                       '
 
 all: $(SRC)
@@ -54,7 +57,12 @@ clean:
 aspell:
 	aspell --home-dir=. --lang=fr --mode=tex --add-tex-command="nsc p" --add-tex-command="citep op" --add-tex-command="citet op" check $(file)
 
+metadata:
+	pdftk $(FILENAME).pdf update_info_utf8 these.info output $(FILENAME)2.pdf
+	$(CP) $(FILENAME)2.pdf $(FILENAME).pdf
+	$(RM) $(FILENAME)2.pdf
+
 flush: clean
 	$(RM) $(FILENAME).pdf
 
-.PHONY : all clean once install flush help
+.PHONY : all clean once install flush help aspell metadata
