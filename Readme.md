@@ -119,7 +119,7 @@ Production du PDF final
 
 L'UQAC demande à ce que le PDF final soit au format
 [PDF/A](https://en.wikipedia.org/wiki/PDF/A), selon le
-[Guide de création des fichiers pour le dépôt final](http://services.uqac.ca/decanat-des-etudes/files/2014/09/GCFFinal.pdf).
+[Guide de création des fichiers pour le dépôt final](http://services.uqac.ca/decanat-des-etudes/files/2014/09/GuideCr%C3%A9ationFichiers_DepotFinal2018.pdf).
 Comme vous utilisez LaTeX, vous êtes épargné du processus fastidieux décrit
 dans ce document (et qui s'applique aux utilisateurs de Word). Vous n'avez
 qu'à décommenter cette ligne dans `these.tex` pour produire votre dernier
