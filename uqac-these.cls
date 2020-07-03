@@ -139,9 +139,11 @@
   %% (ne rien faire)
 }{%
   %% Use Times font with math support
-  \RequirePackage{mathptmx}
+  \RequirePackage{newtxtext}
   %% Redefine default sans-serif font as Helvetica
   \renewcommand{\sfdefault}{phv}
+  %% Use Bera Mono as the monospace font
+  \RequirePackage[scaled]{beramono}
 }
 
 %% ------------------------
