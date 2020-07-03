@@ -34,6 +34,8 @@ help:
 	@echo '                                      texmf local                      '
 	@echo "   make file=chapX.tex aspell       passe le correcteur Aspell sur le  "
 	@echo '                                      fichier chapX.tex                '
+	@echo "   make file=chapX.tex textidote    passe TeXtidote sur le fichier     "
+	@echo '                                      chapX.tex                        '
 	@echo '   make metadata                    ajoute le champ `Author` au PDF    '
 	@echo '                                                                       '
 
@@ -56,6 +58,9 @@ clean:
 
 aspell:
 	aspell --home-dir=. --lang=fr --mode=tex --add-tex-command="nsc p" --add-tex-command="citep op" --add-tex-command="citet op" check $(file)
+
+textidote:
+	textidote --check fr --read-all $(file)
 
 metadata:
 	pdftk $(FILENAME).pdf update_info_utf8 these.info output $(FILENAME)2.pdf
