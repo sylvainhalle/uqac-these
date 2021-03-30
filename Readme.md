@@ -1,7 +1,8 @@
 Gabarit de mémoire, thèse et essai pour l'UQAC
 ==============================================
 
-par Sylvain Hallé <shalle@acm.org>
+Official rules, 
+adapted from https://github.com/sylvainhalle/uqac-these
 
 Comment utiliser ce modèle
 --------------------------
@@ -122,7 +123,7 @@ L'UQAC demande à ce que le PDF final soit au format
 [Guide de création des fichiers pour le dépôt final](http://services.uqac.ca/decanat-des-etudes/files/2014/09/GuideCr%C3%A9ationFichiers_DepotFinal2018.pdf).
 Comme vous utilisez LaTeX, vous êtes épargné du processus fastidieux décrit
 dans ce document (et qui s'applique aux utilisateurs de Word). Vous n'avez
-qu'à décommenter cette ligne dans `these.tex` pour produire votre dernier
+qu'à décommenter cette ligne dans `uqac.tex` pour produire votre dernier
 fichier:
 
     \usepackage[a-1b]{pdfx}
@@ -144,7 +145,5 @@ soit installé.
 
 Consultez les commentaires du code source de `uqac-these.cls` pour
 plus d'information sur la création de cette classe.
-
-2017-12-24
 
 <!-- wrap=hard:maxLineLen=76: -->

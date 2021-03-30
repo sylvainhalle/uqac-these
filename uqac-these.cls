@@ -1,6 +1,10 @@
 %% --------------------------------------------------------------------------
-%% Classe essai/mémoire/thèse UQAC
+%% This is an adaptation of:
+%% http://www.labmath.uqam.ca/presentation-de-la-classe-memoireuqam1-3/telecharger-la-classe-memoireuqam-1-3/
+%% And:
+%% https://github.com/sylvainhalle/uqac-these
 %%
+%% All UQAC current rules are applied to this template (2021/04)
 %% uqac-these.cls
 %% Copyright 2012-2018 Sylvain Hallé
 %%
@@ -66,7 +70,7 @@
 \DeclareOption{essai}{%
   \def\@uqacpdcessai{true}
 }
-\def\@uqacpdcmemoire{false} %% Mémoire
+\def\@uqacpdcmemoire{true} %% Mémoire
 \DeclareOption{memoire}{%
   \def\@uqacpdcmemoire{true}
 }
@@ -78,7 +82,7 @@
 \DeclareOption{propositionprojet}{%
   \def\@uqacpdcproposition{true}
 }
-\def\@uqacpdcthese{true} %% Thèse = valeur par défaut
+\def\@uqacpdcthese{false} %% Thèse = valeur par défaut
 \DeclareOption{these}{%
   \def\@uqacpdcthese{true}
 }
@@ -182,22 +186,22 @@
 %% En français: les paragraphes n'ont pas d'alinéa et sont séparés
 %% par une ligne vide
 %% ------------------------
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{10pt}
+\setlength{\parindent}{40pt}
+\setlength{\parskip}{15pt}
 
 %% ------------------------
 %% Marges de la page et interligne
 %% ------------------------
-\geometry{hmargin={3.5cm,2.5cm},vmargin={3.4cm,3cm}}
+\geometry{hmargin={2.5cm,2.5cm},vmargin={3.4cm,3.4cm}}
 
 %% ------------------------
 %% Style de la page
 %% ------------------------
-\fancyhead[LO,RE]{}
-\fancyhead[RO,LE]{\thepage}
+\fancyhead{}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot{}
+\fancyfoot[R]{\thepage}
 \pagestyle{fancy}
 %% On redéfinit le style plain pour ne pas avoir de numéros de page
 %% à la première page des chapitres
@@ -251,23 +255,13 @@
 \captionsetup[table]{name=Tableau}
 \renewcommand{\captionfont}{\normalfont\small\bfseries}
 
-%% ------------------------
-%% Style de la table des matières
-%% ------------------------
-\renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftloftitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-\renewcommand{\cftafterloftitle}{\hfill}
-\renewcommand{\cftlottitlefont}{\hfill\normalfont\bfseries\MakeUppercase}
-\renewcommand{\cftafterlottitle}{\hfill}
+% Add dots to all sections, including i, ii, ...
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-\setcounter{tocdepth}{1}
-\renewcommand{\cftchapfont}{\normalfont\bfseries}
 
-%% ------------------------
-%% Style de la page couverture
-%% ------------------------
-\renewcommand{\maketitle}{%
+\renewcommand{\maketitle}{
 \begin{titlepage}
 \begin{center}
 \begin{spacing}{2}
@@ -275,25 +269,23 @@
 
 \vfill
 
-\textbf{\MakeTextUppercase{\@uqacpdcnomdoc{}}}\\
-\MakeTextUppercase{présenté\@uqacpdcaccord{} à}\\
-\MakeTextUppercase{l'Université du Québec à Chicoutimi}\\
-\MakeTextUppercase{comme exigence partielle}\\
-\MakeTextUppercase{\@uqacpdcnomprogramme}\\
+\textbf{\@title}
 
 \vfill
 
-\textbf{\MakeTextUppercase{par}}\\
-\MakeTextUppercase{\@author} \\
-%B.A.A.
+\textbf{par \@author}
 
 \vfill
 
-\textbf{\MakeTextUppercase{\@title}}
+\textbf{\@uqacpdcnomdoc{} présenté à l’Université du Québec à Chicoutimi
+eu vue de l'obtention du grade de Maître ès Sciences en Informatique}
+\linebreak
+\linebreak
+Québec, Canada
 
 \vfill
 
-\MakeTextUppercase{\@date}
+\textbf{© \MakeTextUppercase{\@author}, \UqacTheseDate{}}
 \end{spacing}
 \end{center}
 \end{titlepage}
