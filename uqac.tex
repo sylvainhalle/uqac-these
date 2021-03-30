@@ -1,0 +1,198 @@
+%% -----------------------------------------------------------------------
+%% Modèle de thèse/mémoire/essai UQAC
+%% 
+%% Options de la classe:
+%%   - times: pour utiliser Times/Helvetica plutôt que Computer Modern
+%%   - these, memoire, essai, projetthese: crée une page titre libellée
+%%        "thèse" (resp. "mémoire", "essai", etc.)
+%%   - Toutes les options de la classe "book"
+%% -----------------------------------------------------------------------
+\documentclass[times,oneside,these,hidelinks]{uqac-these}
+
+%% Pour utiliser les caractères accentués. Assurez-vous que
+%% votre éditeur texte sauvegarde les fichiers en utilisant l'encodage UTF-8
+\usepackage[utf8]{inputenc}
+
+%% ------------------------
+%% Quelques définitions
+%% ------------------------
+
+%% Titre du document. Ne pas l'écrire tout en majuscules!
+\newcommand{\UqacTheseTitre}{Évaluation de l’état de préparation des applications Android}
+
+%% Auteur du document
+\newcommand{\UqacTheseAuteur}{Guilardi Demetrio}
+
+%% Date (mois année) du document
+\newcommand{\UqacTheseDate}{2021}
+
+% Cette ligne évite une panoplie de warnings de pdflatex si on inclut
+% des figures PDF récentes (version 1.6 et supérieures)
+\pdfminorversion=7
+
+% On ignore les warnings de pdflatex sur les "PDF page groups"
+% (n'a aucun effet dans notre cas)
+\pdfsuppresswarningpagegroup=1
+
+%% ------------------------
+%% Packages usuels
+%% ------------------------
+
+%% Pour les citations de type (Auteur, année) plutôt que [numéro].
+%% Attention: la clé des références ne doit *pas* contenir le caractère ":"
+%% (bug du package natbib)
+\usepackage{natbib}
+% \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+%% Pour interligne simple dans les listes (table des matières, etc.) et
+%% double dans le reste
+\usepackage{setspace}
+
+%% Pour générer des PDF/A (le format demandé par l'UQAC lors du dépôt
+%% final). Il est recommandé de décommenter cette ligne seulement pour
+%% la production de l'ultime PDF du dépôt final.
+%\usepackage[a-1b]{pdfx}
+
+%% Pour ajouter des méta-données PDF et des hyperliens
+\usepackage{hyperref}
+
+%% Pour inclure des graphiques (via la commande \includegraphics)
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+
+%% Pour inclure des listings de code source
+\usepackage{listings}
+
+% Pour l'index
+\makeindex
+
+%% ------------------------
+%% Création des méta-données PDF
+%% ------------------------
+\makeatletter
+\newcommand{\UqacTheseVersion}{\@uqactheseversion}
+\makeatother
+\hypersetup{%
+  pdfauthor = {\UqacTheseAuteur},
+  pdftitle = {\UqacTheseTitre},
+  pdfproducer = {Package uqac-these V\UqacTheseVersion}
+}
+
+
+
+% custom packages
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{tcolorbox}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{afterpage}
+
+
+
+
+% custom commands
+\newcommand{\toolname}{\textit{AndroidPropTracker} }
+\newcommand{\buildgradle}{\textit{build\allowbreak.gradle} }
+\newcommand{\manifest}{\textit{AndroidManifest\allowbreak.xml} }
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+
+% configure algo package
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+
+% configuration of Listing package
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+\afterpage{\blankpage}
+  
+%% ------------------------
+%% Création de la page titre
+%% ------------------------
+\title{\UqacTheseTitre}
+\author{\UqacTheseAuteur}
+\date{\UqacTheseDate}
+\thispagestyle{empty}
+\maketitle
+
+%% ------------------------
+%% Pages préliminaires
+%% ------------------------
+
+\frontmatter
+\singlespacing
+\include{resume} % <-- Ne pas effacer! Cette section est *obligatoire* à l'UQAC!
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\lstlistoflistings
+
+%% ------------------------
+%% Document principal
+%% ------------------------
+
+\mainmatter
+\doublespacing
+\include{chapter1-introduction/chapter}
+\include{chapter2-background/chapter}
+% Add new chapters here
+
+%% ------------------------
+%% Pages liminaires
+%% ------------------------
+\backmatter
+%% Style des références bibliographiques
+\bibliographystyle{uqac}
+
+%% Liste des fichiers source pour la bibliograhpie.
+%% On peut inclure plus d'un fichier en séparant leurs noms par des
+%% virgules.
+\bibliography{biblio-articles, biblio-books, biblio-papers, biblio-sites}
+
+% \printbibliography
+
+
+%% Décommenter cette ligne pour afficher l'index
+% \printindex
+\end{document}
