@@ -1,4 +1,4 @@
-**Ce gabarit est obsolète. Utiliser plutôt https://github.com/FlorentinTh/TemplateLaTeXUQAC.**
+**Ce gabarit est obsolète. Utiliser plutôt https://github.com/sylvainhalle/uqac-these-3.**
 
 Gabarit de mémoire, thèse et essai pour l'UQAC
 ==============================================
